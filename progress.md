@@ -138,6 +138,21 @@ If the session disconnects or restarts, we can read this file and resume quickly
   - failed required checks block merge
   - PR remains open until fix is pushed and checks pass
 
+16. Fixed CI failure and completed Module 5 merge
+- Updated CI workflow on PR branch to fix import path issue:
+  - set `PYTHONPATH: .` in `.github/workflows/ci.yml` test job
+- Added explicit Module 5 course note in `COURSE.md`:
+  - if checks fail on PR, fix on same branch, push again, merge only when checks pass
+- Verified rerun checks on PR `#2`:
+  - `lint` passed
+  - `test` passed
+- User completed squash merge of PR `#2`:
+  - PR state `MERGED`
+  - merged at `2026-02-20T13:32:23Z`
+  - merge commit `e9305ff`
+- Synced local `develop` with merged result and carried follow-up concepts clarification commit:
+  - commit `6870096` (`docs: clarify PR-update CI rerun behavior`)
+
 ## Current Status
 
 - Local repo: initialized and healthy.
@@ -148,16 +163,14 @@ If the session disconnects or restarts, we can read this file and resume quickly
   - Module 1: complete (branch protection enabled and validated).
   - Module 2: complete (feature branch implemented, pushed, PR opened).
   - Module 3: complete (review simulation + follow-up commits + squash merge).
-  - Module 5: in progress (PR open; CI check failure under investigation/fix).
+  - Module 5: complete (CI workflow merged after fixing failing check).
 
 ## Next Planned Step
 
-- Continue to Module 5 (course practice order):
-  - Fix PR #2 test import issue (`No module named 'src'`).
-  - Push fix to `ci/add-github-actions`.
-  - Confirm CI jobs rerun and pass on PR #2.
-  - Merge PR when checks pass.
-  - After first CI run, optionally enable required status checks in branch protection.
+- Continue to Module 4 (merge conflict practice):
+  - Create `feature/PROJ-102-add-email-to-user` from `develop`
+  - Create `feature/PROJ-103-add-role-to-user` from `develop`
+  - Merge one first, then resolve conflict in the other
 
 ## Ownership Clarity (Module 1)
 
@@ -175,20 +188,20 @@ If the session disconnects or restarts, we can read this file and resume quickly
 ## Session State
 
 - Status: Active.
-- Resume point: Module 5 (CI/CD with GitHub Actions).
+- Resume point: Module 4 (Merge Conflicts).
 - Resume checklist:
-  - Fix CI import path issue in PR #2.
-  - Push update and verify `test` + `lint` checks pass.
-  - Merge PR #2, then move to Module 4 (merge conflict practice).
+  - checkout and pull latest `develop`
+  - create conflicting feature branches for PROJ-102 and PROJ-103
+  - practice local conflict resolution and push updated branch
 
 ## Ownership Clarity (Current)
 
 - I did:
-  - Completed Module 3 implementation and merge verification.
-  - Verified GitHub CLI access and set future commit identity to Zack.
+  - Completed Module 5 CI workflow setup and failure-fix cycle through merged PR.
+  - Verified PR checks and documented CI behavior in concept/course notes.
 - You do:
   - Complete GitHub UI actions:
-    - (Module 5, optional after CI exists) choose required checks in branch protection
+    - (optional now) enable required status checks (`test`, `lint`) in branch protection
 
 ## Update Rule (for future turns)
 

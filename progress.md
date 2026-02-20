@@ -83,6 +83,16 @@ If the session disconnects or restarts, we can read this file and resume quickly
   - mergeable `CLEAN` / `MERGEABLE`
   - no reviews yet, no required checks configured.
 
+11. Module 3 review-follow-up commit applied
+- Simulated review feedback handling on PR `#1` by updating feature branch:
+  - Added input validation for `name`
+  - Added type hints to `UserService`
+  - Added `delete_user` method
+  - Expanded tests for validation and delete behavior
+- Committed and pushed:
+  - commit `c69856f`
+  - message `feat(PROJ-101): add validation, type hints, and delete_user per review`
+
 ## Current Status
 
 - Local repo: initialized and healthy.
@@ -96,10 +106,9 @@ If the session disconnects or restarts, we can read this file and resume quickly
 ## Next Planned Step
 
 - Continue to Module 3:
-  - Add review comments on PR `#1` (simulate reviewer role).
-  - Request changes.
-  - Apply follow-up commit(s) on feature branch.
-  - Re-request review and then approve/merge (squash).
+  - Re-open PR `#1` conversation and reply that requested changes were addressed.
+  - Approve/merge PR `#1` (squash) into `develop`.
+  - Continue to Module 5 (CI setup) or Module 4 (merge conflict), based on course order preference.
 
 ## Ownership Clarity (Module 1)
 

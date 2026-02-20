@@ -93,6 +93,18 @@ If the session disconnects or restarts, we can read this file and resume quickly
   - commit `c69856f`
   - message `feat(PROJ-101): add validation, type hints, and delete_user per review`
 
+12. Completed Module 3 PR lifecycle
+- PR `#1` was merged with squash into `develop`.
+- Verified with GitHub CLI:
+  - state `MERGED`
+  - merged at `2026-02-20T12:57:12Z`
+  - merge commit `294f7df`
+- Verified `origin/develop` contains merge commit `294f7df Feature/proj 101 add user service (#1)`.
+- Verified `gh` CLI is installed and authenticated as `ZackZhouHB`.
+- Updated local git commit identity for future commits:
+  - `user.name = zack`
+  - `user.email = ZackZhouHB@users.noreply.github.com`
+
 ## Current Status
 
 - Local repo: initialized and healthy.
@@ -102,13 +114,15 @@ If the session disconnects or restarts, we can read this file and resume quickly
 - Module progress:
   - Module 1: complete (branch protection enabled and validated).
   - Module 2: complete (feature branch implemented, pushed, PR opened).
+  - Module 3: complete (review simulation + follow-up commits + squash merge).
 
 ## Next Planned Step
 
-- Continue to Module 3:
-  - Re-open PR `#1` conversation and reply that requested changes were addressed.
-  - Approve/merge PR `#1` (squash) into `develop`.
-  - Continue to Module 5 (CI setup) or Module 4 (merge conflict), based on course order preference.
+- Continue to Module 5 (course practice order):
+  - Add `.github/workflows/ci.yml` with test + lint jobs.
+  - Create branch `ci/add-github-actions`.
+  - Commit, push, and open PR to `develop`.
+  - After first CI run, optionally enable required status checks in branch protection.
 
 ## Ownership Clarity (Module 1)
 
@@ -126,21 +140,23 @@ If the session disconnects or restarts, we can read this file and resume quickly
 ## Session State
 
 - Status: Active.
-- Resume point: Module 3 (PR + review simulation), while Module 1 branch protection may still be pending.
+- Resume point: Module 5 (CI/CD with GitHub Actions).
 - Resume checklist:
-  - Confirm branch protection is set on `main` in GitHub UI.
-  - Open PR:
-    - `feature/PROJ-101-add-user-service` -> `develop`
-  - Continue Module 3 review cycle.
+  - Checkout `develop` and pull latest:
+    - `git checkout develop`
+    - `git pull origin develop`
+  - Start CI branch:
+    - `git checkout -b ci/add-github-actions`
+  - Add workflow file and continue Module 5.
 
 ## Ownership Clarity (Current)
 
 - I did:
-  - Implemented Module 2 local coding workflow and pushed feature branch.
-  - Verified branch protection enforcement and PR metadata from CLI.
+  - Completed Module 3 implementation and merge verification.
+  - Verified GitHub CLI access and set future commit identity to Zack.
 - You do:
   - Complete GitHub UI actions:
-    - (Module 3) perform review simulation in GitHub UI on PR `#1`
+    - (Module 5, optional after CI exists) choose required checks in branch protection
 
 ## Update Rule (for future turns)
 

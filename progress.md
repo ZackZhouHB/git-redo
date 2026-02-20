@@ -105,6 +105,39 @@ If the session disconnects or restarts, we can read this file and resume quickly
   - `user.name = zack`
   - `user.email = ZackZhouHB@users.noreply.github.com`
 
+13. Post-merge branch cleanup completed (real-world practice)
+- Confirmed PR merge on `develop`, then cleaned up feature branch lifecycle:
+  - fast-forwarded local `develop` to `origin/develop`
+  - cherry-picked docs continuity commit `9e7dca2` onto `develop` as `a9569bf`
+  - pushed `develop` to GitHub
+  - deleted local branch `feature/PROJ-101-add-user-service`
+  - deleted remote branch `origin/feature/PROJ-101-add-user-service`
+
+14. Started Module 5 (CI/CD)
+- Created branch `ci/add-github-actions` from latest `develop`.
+- Added workflow file:
+  - `.github/workflows/ci.yml`
+  - jobs: `test` (pytest) and `lint` (flake8)
+- Committed and pushed:
+  - commit `9968e68`
+  - message `ci: add GitHub Actions workflow for tests and linting`
+- Branch ready for PR:
+  - `ci/add-github-actions` -> `develop`
+
+15. Opened PR #2 and validated CI behavior
+- User opened PR `#2`: `ci/add-github-actions` -> `develop`.
+- Verified with GitHub CLI:
+  - state `OPEN`
+  - mergeable `MERGEABLE` with `UNSTABLE` status because checks are failing
+  - checks: `lint` passed, `test` failed
+- Inspected failed GitHub Actions log:
+  - error: `ModuleNotFoundError: No module named 'src'`
+  - location: test collection phase for `tests/test_app.py` and `tests/test_user_service.py`
+- Clarified workflow expectation:
+  - CI runs automatically on PR
+  - failed required checks block merge
+  - PR remains open until fix is pushed and checks pass
+
 ## Current Status
 
 - Local repo: initialized and healthy.
@@ -115,13 +148,15 @@ If the session disconnects or restarts, we can read this file and resume quickly
   - Module 1: complete (branch protection enabled and validated).
   - Module 2: complete (feature branch implemented, pushed, PR opened).
   - Module 3: complete (review simulation + follow-up commits + squash merge).
+  - Module 5: in progress (PR open; CI check failure under investigation/fix).
 
 ## Next Planned Step
 
 - Continue to Module 5 (course practice order):
-  - Add `.github/workflows/ci.yml` with test + lint jobs.
-  - Create branch `ci/add-github-actions`.
-  - Commit, push, and open PR to `develop`.
+  - Fix PR #2 test import issue (`No module named 'src'`).
+  - Push fix to `ci/add-github-actions`.
+  - Confirm CI jobs rerun and pass on PR #2.
+  - Merge PR when checks pass.
   - After first CI run, optionally enable required status checks in branch protection.
 
 ## Ownership Clarity (Module 1)
@@ -142,12 +177,9 @@ If the session disconnects or restarts, we can read this file and resume quickly
 - Status: Active.
 - Resume point: Module 5 (CI/CD with GitHub Actions).
 - Resume checklist:
-  - Checkout `develop` and pull latest:
-    - `git checkout develop`
-    - `git pull origin develop`
-  - Start CI branch:
-    - `git checkout -b ci/add-github-actions`
-  - Add workflow file and continue Module 5.
+  - Fix CI import path issue in PR #2.
+  - Push update and verify `test` + `lint` checks pass.
+  - Merge PR #2, then move to Module 4 (merge conflict practice).
 
 ## Ownership Clarity (Current)
 

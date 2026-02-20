@@ -57,6 +57,21 @@ It captures the basic questions asked during the course so they are easy to revi
 - `Files changed`:
   - Line-by-line correctness review.
 
+## CI vs CI/CD and PR Behavior
+
+- `CI` (Continuous Integration):
+  - Automatically runs validation (test/lint/build) on pushes/PRs.
+- `CD` (Continuous Delivery/Deployment):
+  - Delivers or deploys after CI passes (often with policy gates).
+- `CI/CD`:
+  - Refers to both together.
+
+Practical PR behavior:
+- Opening or updating a PR triggers configured CI workflows.
+- If a check fails, the PR is not auto-closed; it stays open.
+- Branch protection can block merge until required checks pass.
+- Developer pushes a fix to the same branch; checks rerun automatically.
+
 ## Trunk-Based vs Develop-Based
 
 - Trunk-based:
@@ -87,6 +102,7 @@ Both are used in industry. Large companies often prefer trunk-based with strong 
 - Reply to each review comment with what changed.
 - Avoid direct pushes to protected branches.
 - Prefer squash merge for clean history (if team policy uses it).
+- Treat CI failures as useful feedback from a clean environment, not as a personal error.
 
 ## Your Practical Learning Milestones So Far
 

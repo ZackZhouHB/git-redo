@@ -153,6 +153,13 @@ If the session disconnects or restarts, we can read this file and resume quickly
 - Synced local `develop` with merged result and carried follow-up concepts clarification commit:
   - commit `6870096` (`docs: clarify PR-update CI rerun behavior`)
 
+17. End-of-day park checkpoint
+- Final validation before pausing:
+  - working tree clean on `develop`
+  - `develop` tracking `origin/develop`
+  - no open PRs remaining
+- Session intentionally parked to resume next day at Module 4.
+
 ## Current Status
 
 - Local repo: initialized and healthy.
@@ -187,7 +194,7 @@ If the session disconnects or restarts, we can read this file and resume quickly
 
 ## Session State
 
-- Status: Active.
+- Status: Parked (end-of-day pause).
 - Resume point: Module 4 (Merge Conflicts).
 - Resume checklist:
   - checkout and pull latest `develop`

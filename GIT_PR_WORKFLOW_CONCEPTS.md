@@ -72,6 +72,10 @@ Practical PR behavior:
 - Branch protection can block merge until required checks pass.
 - Developer pushes a fix to the same branch; checks rerun automatically.
 
+Industry-standard detail:
+- In PR-based workflows, new commits pushed to an already-open PR branch trigger CI again on that same PR.
+- This is normal expected behavior across major CI platforms (GitHub Actions, GitLab CI, CircleCI, Jenkins PR jobs, Buildkite).
+
 ## Trunk-Based vs Develop-Based
 
 - Trunk-based:

@@ -57,6 +57,42 @@ If the session disconnects or restarts, we can read this file and resume quickly
   - message `chore: initial project setup`
 - Created and pushed `develop` branch, with upstream tracking to `origin/develop`.
 
+8. Saved continuity tracker and resumed work
+- Committed and pushed this tracker file:
+  - commit `0e1db2e`
+  - message `docs: add session progress tracker`
+
+9. Started and completed Module 2 implementation branch
+- Created branch from `develop`:
+  - `feature/PROJ-101-add-user-service`
+- Added `src/user_service.py` and committed:
+  - commit `f7520ce`
+  - message `feat(PROJ-101): add UserService with create and get`
+- Added `tests/test_user_service.py` and committed:
+  - commit `e94cce8`
+  - message `test(PROJ-101): add unit tests for UserService`
+- Pushed feature branch to GitHub and set upstream tracking.
+
+10. Confirmed GitHub branch protection and PR state
+- User enabled branch protection on `main` in GitHub UI.
+- Validated from CLI by attempting direct push to `main`; GitHub rejected with rule violation requiring PR.
+- Verified open PR status with GitHub CLI:
+  - PR `#1`
+  - `feature/PROJ-101-add-user-service` -> `develop`
+  - state `OPEN`
+  - mergeable `CLEAN` / `MERGEABLE`
+  - no reviews yet, no required checks configured.
+
+11. Module 3 review-follow-up commit applied
+- Simulated review feedback handling on PR `#1` by updating feature branch:
+  - Added input validation for `name`
+  - Added type hints to `UserService`
+  - Added `delete_user` method
+  - Expanded tests for validation and delete behavior
+- Committed and pushed:
+  - commit `c69856f`
+  - message `feat(PROJ-101): add validation, type hints, and delete_user per review`
+
 ## Current Status
 
 - Local repo: initialized and healthy.
@@ -64,16 +100,15 @@ If the session disconnects or restarts, we can read this file and resume quickly
 - `main`: pushed and tracking `origin/main`.
 - `develop`: created, pushed, and tracking `origin/develop`.
 - Module progress:
-  - Module 1: mostly complete.
-  - Remaining manual step: configure branch protection for `main` in GitHub UI.
+  - Module 1: complete (branch protection enabled and validated).
+  - Module 2: complete (feature branch implemented, pushed, PR opened).
 
 ## Next Planned Step
 
-- Continue to Module 2:
-  - Create `feature/PROJ-101-add-user-service` from `develop`.
-  - Implement `UserService`.
-  - Add tests.
-  - Push feature branch and prepare PR workflow.
+- Continue to Module 3:
+  - Re-open PR `#1` conversation and reply that requested changes were addressed.
+  - Approve/merge PR `#1` (squash) into `develop`.
+  - Continue to Module 5 (CI setup) or Module 4 (merge conflict), based on course order preference.
 
 ## Ownership Clarity (Module 1)
 
@@ -90,15 +125,22 @@ If the session disconnects or restarts, we can read this file and resume quickly
 
 ## Session State
 
-- Status: Parked (break requested by user).
-- Resume point: finish Module 1 manual GitHub branch protection step, then start Module 2.
+- Status: Active.
+- Resume point: Module 3 (PR + review simulation), while Module 1 branch protection may still be pending.
 - Resume checklist:
-  - Confirm branch protection is set on `main`.
-  - Run from local `develop`:
-    - `git checkout develop`
-    - `git pull origin develop`
-  - Create feature branch for Module 2:
-    - `git checkout -b feature/PROJ-101-add-user-service`
+  - Confirm branch protection is set on `main` in GitHub UI.
+  - Open PR:
+    - `feature/PROJ-101-add-user-service` -> `develop`
+  - Continue Module 3 review cycle.
+
+## Ownership Clarity (Current)
+
+- I did:
+  - Implemented Module 2 local coding workflow and pushed feature branch.
+  - Verified branch protection enforcement and PR metadata from CLI.
+- You do:
+  - Complete GitHub UI actions:
+    - (Module 3) perform review simulation in GitHub UI on PR `#1`
 
 ## Update Rule (for future turns)
 

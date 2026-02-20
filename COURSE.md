@@ -233,6 +233,20 @@ git push origin feature/PROJ-101-add-user-service
 5. **Re-request review**
 6. **Reviewer approves** → "LGTM 🚀" (Looks Good To Me)
 7. **Merge the PR** using "Squash and merge" (most common in real teams)
+8. **Post-merge cleanup** (real-world habit)
+
+```bash
+# Sync develop with the merged PR result
+git checkout develop
+git pull origin develop
+
+# Delete merged feature branch locally and remotely
+git branch -d feature/PROJ-101-add-user-service
+git push origin --delete feature/PROJ-101-add-user-service
+```
+
+> If you made extra commits on the feature branch after the merge,
+> first move those commits to `develop` (or a new branch) before deleting.
 
 > **Interview tip:** "We use squash merges to keep main/develop history clean.
 > Each PR becomes one commit on the target branch."
@@ -352,6 +366,8 @@ git commit -m "ci: add GitHub Actions workflow for tests and linting"
 git push origin ci/add-github-actions
 # Create PR and merge
 ```
+
+If checks fail on the PR, fix the issue on the same branch, push again, and merge only after all checks pass.
 
 Now every future PR will show ✅ or ❌ status checks.
 

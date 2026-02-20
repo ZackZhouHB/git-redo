@@ -124,6 +124,20 @@ If the session disconnects or restarts, we can read this file and resume quickly
 - Branch ready for PR:
   - `ci/add-github-actions` -> `develop`
 
+15. Opened PR #2 and validated CI behavior
+- User opened PR `#2`: `ci/add-github-actions` -> `develop`.
+- Verified with GitHub CLI:
+  - state `OPEN`
+  - mergeable `MERGEABLE` with `UNSTABLE` status because checks are failing
+  - checks: `lint` passed, `test` failed
+- Inspected failed GitHub Actions log:
+  - error: `ModuleNotFoundError: No module named 'src'`
+  - location: test collection phase for `tests/test_app.py` and `tests/test_user_service.py`
+- Clarified workflow expectation:
+  - CI runs automatically on PR
+  - failed required checks block merge
+  - PR remains open until fix is pushed and checks pass
+
 ## Current Status
 
 - Local repo: initialized and healthy.
@@ -134,13 +148,14 @@ If the session disconnects or restarts, we can read this file and resume quickly
   - Module 1: complete (branch protection enabled and validated).
   - Module 2: complete (feature branch implemented, pushed, PR opened).
   - Module 3: complete (review simulation + follow-up commits + squash merge).
-  - Module 5: in progress (CI branch created and pushed).
+  - Module 5: in progress (PR open; CI check failure under investigation/fix).
 
 ## Next Planned Step
 
 - Continue to Module 5 (course practice order):
-  - Open PR from `ci/add-github-actions` to `develop`.
-  - Confirm CI jobs run on the PR.
+  - Fix PR #2 test import issue (`No module named 'src'`).
+  - Push fix to `ci/add-github-actions`.
+  - Confirm CI jobs rerun and pass on PR #2.
   - Merge PR when checks pass.
   - After first CI run, optionally enable required status checks in branch protection.
 
@@ -162,10 +177,9 @@ If the session disconnects or restarts, we can read this file and resume quickly
 - Status: Active.
 - Resume point: Module 5 (CI/CD with GitHub Actions).
 - Resume checklist:
-  - Open PR:
-    - `ci/add-github-actions` -> `develop`
-  - Observe first CI execution on GitHub Actions.
-  - Merge PR, then move to Module 4 (merge conflict practice).
+  - Fix CI import path issue in PR #2.
+  - Push update and verify `test` + `lint` checks pass.
+  - Merge PR #2, then move to Module 4 (merge conflict practice).
 
 ## Ownership Clarity (Current)
 
